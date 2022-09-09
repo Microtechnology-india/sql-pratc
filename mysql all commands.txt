@@ -1,0 +1,1600 @@
+  {:- aws login cmd = mysql -u admin -h e-commerce.czlhhsqijzkh.ap-south-1.rds.amazonaws.com -p   :-}
+
+ * Firebase authentication
+
+   https://github.com/deepakmp444/phoneAuth
+   https://medium.com/@warriorking778/phone-authentication-firebase-react-js-68fc464db003
+   https://github.com/deepakmp444/phoneAuth
+
+al
+CREATE USER 'user'@'host';
+
+Grant a specified type of privilege to a user on an object:
+
+Create user 'user_name'@'%' identified by 'password(12345)';   { :- ADMIN :- }
+{ :- you can create user(ADMIN) onetime and access any other person  when they are grant the permissions and you don't need to create user again
+again same name user so that command is wrong? so you can create user other name than the command will run } 
+
+*  GRANT privileges_name ON object TO user; { -: grant all privileges on database_name.table_name(*(all)) to admin('shubham'@'%(all access from anywhere)' }
+ 
+*  Revoke command :- revoke all privileges on tnplab employee from user;
+*  Grant select on database_name.table_name(any one table give the permission for one user) to 'shubham'@'%';
+
+*  Grant update on database_name.* to 'shubham'@'%';
+*  Grant update , select on database_name.* to 'shubham'@'%';
+
+Set a password for the current user:
+
+SET PASSWORD='password'
+
+1. create database student;
+
+2. show databases;
+
+3. use databases;
+
+4. create table class(id AUTO_INCREMENT PRIMARY KEY int(),name varchar(),course varchar(),
+
+5. show tables;
+
+6. insert into class values('1','ram','bba');
+
+7. check formate = desc school;
+
+ 8. select * from table_name(school);
+
+ 9. PARTICULAR = alter table school add feild(salary int(10));
+
+ 10. alter table table_name(school) drop salary;
+
+11.  alter table class rename student;
+
+12.   alter table class modify int varchar(10);
+
+13.   alter table make_payment drop transiction_id;
+14.    drop table make_payment;
+
+  
+    // Update query
+ 11. update school set stu_name='ravi singh' where stu_id='4'; (values      change); add put value;
+  *. update table_name set aadhar="22222";    |- update all any particular column -|
+  *. update table_name set aadhar="22222" where roll_no=111;  (update any one column)
+
+
+ 12. delete from table_name(school) where city='u.p';
+
+ * { -: Truncate = truncate employee; (you can use this commend! completed data in table deleted)}
+ * { -: Drop table :- drop table table_name }
+
+ 13. commit; 
+ 
+ 14. rollback;(oracle)
+
+ 15. distinct (alag): select distinct city from employee1;
+
+ 16. alter table school modify name varchar(10);  (change only size);
+
+ 17. alter table table name change id shubh varchar(10);
+
+ 18. change a table name:= alter table employee to emp_12;  
+
+ 19. Add a primary key:= alter table emp_11 add primary key (roll_no); 
+
+    { :- WHERE CLAUSE :- }
+
+ 20. select * from employee1 where age>20 and age<48;
+
+ 21. select * from student where name='ram' limit (3,6);
+
+ 23. IN Command : select * from employee1 where age in (2,5);
+
+  (22)    drop database employee1;
+
+ 24.  select * from employee1 where age not in (2,5);
+
+ 25. BETWEEN : select * from table name  where column name between value1 and value2;
+===============================================================================================================
+    { :- Orderby CLAUSE :- }
+
+ 22. select * from student where city='rewa' order by name limit 3;
+   * :-  select * from table_name order by id;
+     :-  select * from table_name order by id ASC;
+     :-  select * from table_name order by id DESC;
+     :-  select * from table_name where id>20 and id<40; { :- This command/Query is use for how to works FILTER } 
+     :-  select * from table_name where id>20 or id<40;
+     :-  select * from table_name where salary IN(1000, 10000);
+     :-  delete from employee where salary > 10000;
+    
+*  select id, upper(name), dept from employee;
+*  select id, lower(name), dept from employee;
+
+===============================================================================================================
+             { :- Like operator :- }
+
+   *  select * from employee where name like 'a%';
+   *  select * from table_name where name like 'ab%';
+   *  select * from table_name where name like 'a---i%';
+   *  select * from table_name where name like '------s%';
+   *  select * from table_name where name like '%i%';
+   *  select * from table_name where name like '%h';
+==============================================================================================================
+
+ 26. not between;
+
+ 27. if clause: select id,name,percentage from if (percentage           >=33,"pass","fail") as result from student;
+
+ 28. CASE : select id,name,percentage from case when percentage >=80             and percentage<=100 then "merit" 
+            when percentage >=60 and percentage<=80 then "first             division"  
+            when percentage >=45 and percentage<=60 then "second             division" 
+            when percentage >=33 and percentage<=45 then "third             division" 
+            when percentage<33 then "fail"
+            end as grade from student;
+
+ 30. case update : update student set percentage =(case id when3                                                     then45 
+                                         when 7                             then68      end) where id in(3,7); 
+
+ 31. RENAME COLUMN: alter table school change id code int();                     datatype;
+
+ 32. RENAME TABLE:alter table school rename new name datatype;
+
+  {RENAME -: rename table table_name to new table_name;
+
+ 33. REORDER: alter table student modify city varchar(10) after name; 
+
+ 34. AUTO INCREMENT: AUTOMATIC NUMBERING IN SQL   { -: ID int primary key AUTO INCREMENT }
+
+ 35.join : select column from table1 inner join table2 on     student.city =city.cid;
+
+ 36. create index index_name on table_name(column1,column2,column3);
+
+ 37. drop index index_name on table_name;
+
+ 38. regular expresion: select * from student where name regexp '^[rs]';
+ 
+ 39. check = age int,check(age>=18)
+======================================================================================================
+ *  select concat(name,city) from table_name;
+ *  select concat(name,'', city) from table_name;
+                                fullname(alias name)
+======================================================================================================
+            aggregate function
+  
+  1.sum()
+  2.avg()
+  3.min()
+  4.max ()
+  5.count()
+  6.district()
+
+       structur query language  
+ 
+ 1. DDL = Data definition language.(create, alter (add,modify,drop), trancate,rename).
+
+ 2. DML = Data multipulation language.(insert ,delete ,update).
+
+ 3. DQL = Data query language(select);
+ 
+ 4. DCL = Data control language. (grant, revoke);
+
+ 5. TCL = Transiction control language(commit, rollback, savepoint);
+
+======================================================================================================================
+         All operators
+
+  1.    ALL	  	
+  2.    AND	   
+  3.    ANY	   	
+  4.    BETWEEN
+  5.    EXISTS	   	
+  6.    IN	   
+  7.    LIKE	   	
+  8.    NOT	 	
+  9.    OR	   	
+  10.   SOME	  	
+
+      Arithmetic operators
+
+ 1. +	Add	
+ 2. -	Subtract	
+ 3. *	Multiply	
+ 4. /	Divide	
+ 5. %	Modulo
+================================================================================================================
+  * select sum(salary) from employee;
+  * select concat(sum(salary),'','INR') from employee;
+  * select count(*), concat(sum(salary),'','INR') total from employee;
+  * select count(*), concat(sum(salary),'','INR') original, sum(salary) -0.1*sum(salary) from employee;(10%discount);
+  * select count(*), concat(sum(salary),'','INR') original,sum(salary) -0.1*sum(salary) 'after discount' table_name;
+  * select min(salary) from employee;
+  * select max(salary) from employee;
+  * select sum(name) from table_name;
+  * select count(city) from table_name;
+  * select distinct(city), sum(salary) from table_name;
+================================================================================================================
+  * select city,sum(salary) from table_name group by city;
+  * select city, sum(salary) from table_name group by city where salary> 10000; (having clause use)
+  * select city, sum(salary) from table_name group by city having sum(salary)>10000;
+  * select city, sum(salary) from table_name group by city having count(city)>2;
+  * select name from employee where city IN(select city from table_name group by city having count(city)>=2); { sub Query(Query inside of Query)}
+  * select salary from table_name group by salary order by salary;
+  * select salary from employee group by salary limit (3,1);
+
+================================================================================================================
+    Bitwise operator
+
+ 1.  &	 Bitwise AND
+ 2.  |	 Bitwise OR
+ 3.  ^	 Bitwise exclusive OR
+ 4.  <>	 Not equal to	
+
+
+Auto date time generate: insert into employee values('','sanjeev',curdate(),curtime(),now() );
+
+
+========================================================================================================
+   { :- check some command :- }
+ * select @@ hostname;  (:- leptop nameshow)
+ * select current_user; (:- current usershow)
+ * select user, host, time from information_schema.processlist;
+(This command is use for check the user from where user work and login)
+ 
+ * alter table table_name add foreign key(id) references table_name(id);
+ * alter table table_name modify name varchar(10);
+
+prii
+
+ * alter table table_name add primary key(id,pin);  { :- Composite key :-}
+  { :- Composite key :-}  (when we make more then one attribute primary key
+     so one table you don't create multiple primary key so you can use composite key)
+ 
+ * alter table table_name 1 add check(every months);
+========================================================================================================
+      { :- Intigrety constraints -: }
+
+Table1  *  create table table_name(
+  >id int primary key auto_increment,
+  >name varchar(10) 
+  >gender char(1) check(gender='M' or gender= 'F'),
+  >salary int(6) check(salary>=10000),
+  >aadhar varchar(12) unique,
+  >city char(10) default 'Bhopal',
+  >dept varchar(7) check(dept IN('admin','clerk','manager','acc'));
+
+Table2 * create table table_name(
+  >id varchar(5),
+  >month char(5),
+  >pay int(5),
+  >foreign key (id) references other table_name(id));
+=======================================================================================================
+
+> create table product_Inventory(
+    -> product_id int primary key,
+    -> category_id int,
+    -> c_category_id int,
+    -> product_name varchar(10) not null,
+    -> Product_company varchar(10) not null,
+    -> MF_date date,
+    -> EX_date date,
+    -> shop_id int(10),
+    ->
+    -> Quantity int not null,
+    -> discription varchar(50) not null);
+
+
+==========================================================================================================================================================
+
+                                            :- imported query of sql :-
+
+
+MySQL [tnplab]> create table emp(
+    -> id int primary key auto_increment,
+    -> name varchar(100),
+    -> city varchar(100),
+    -> salary int(100),
+    -> dept varchar(100),
+    -> doj date
+    -> );
+Query OK, 0 rows affected, 1 warning (0.162 sec)
+
+MySQL [tnplab]> insert into emp values(1,'raj','bhopal',500,'db',20-10-2010);
+Query OK, 1 row affected, 1 warning (0.116 sec)
+
+MySQL [tnplab]> insert into emp values('','raju','indore',5500,'cs',22-06-2015);
+Query OK, 1 row affected, 2 warnings (0.104 sec)
+
+MySQL [tnplab]> select * from emp;
++----+------+--------+--------+------+------------+
+| id | name | city   | salary | dept | doj        |
++----+------+--------+--------+------+------------+
+|  1 | raj  | bhopal |    500 | db   | 0000-00-00 |
+|  2 | raju | indore |   5500 | cs   | 0000-00-00 |
++----+------+--------+--------+------+------------+
+2 rows in set (0.112 sec)
+
+MySQL [tnplab]> update emp set doj=2010-10-22 where id = 1;
+Query OK, 0 rows affected, 1 warning (0.105 sec)
+Rows matched: 1  Changed: 0  Warnings: 1
+
+MySQL [tnplab]> select * from emp;
++----+------+--------+--------+------+------------+
+| id | name | city   | salary | dept | doj        |
++----+------+--------+--------+------+------------+
+|  1 | raj  | bhopal |    500 | db   | 0000-00-00 |
+|  2 | raju | indore |   5500 | cs   | 0000-00-00 |
++----+------+--------+--------+------+------------+
+2 rows in set (0.053 sec)
+
+MySQL [tnplab]> update emp set doj='2010-10-22' where id = '1';
+Query OK, 1 row affected (0.124 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+------+--------+--------+------+------------+
+| id | name | city   | salary | dept | doj        |
++----+------+--------+--------+------+------------+
+|  1 | raj  | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju | indore |   5500 | cs   | 0000-00-00 |
++----+------+--------+--------+------+------------+
+2 rows in set (0.129 sec)
+
+MySQL [tnplab]> update emp set doj='2015-08-10' where id = '2';
+Query OK, 1 row affected (0.057 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+------+--------+--------+------+------------+
+| id | name | city   | salary | dept | doj        |
++----+------+--------+--------+------+------------+
+|  1 | raj  | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju | indore |   5500 | cs   | 2015-08-10 |
++----+------+--------+--------+------+------------+
+2 rows in set (0.104 sec)
+
+MySQL [tnplab]> insert into emp values('','ravi','bhopal',5000,'db',2022-09-20);
+Query OK, 1 row affected, 2 warnings (0.122 sec)
+
+MySQL [tnplab]> insert into emp values('','rajkumar','bihar',500,'cs',2021-03-12);
+Query OK, 1 row affected, 2 warnings (0.123 sec)
+
+MySQL [tnplab]> insert into emp values('','shanu','satna',800,'db',2019-10-23);
+Query OK, 1 row affected, 2 warnings (0.138 sec)
+
+MySQL [tnplab]> insert into emp values('','shubham','Rewa',1800,'bsc',2019-10-23);
+Query OK, 1 row affected, 2 warnings (0.068 sec)
+
+MySQL [tnplab]> select * from empl;
+ERROR 1146 (42S02): Table 'tnplab.empl' doesn't exist
+MySQL [tnplab]> select * from emp
+    -> ;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 0000-00-00 |
+|  4 | rajkumar | bihar  |    500 | cs   | 0000-00-00 |
+|  5 | shanu    | satna  |    800 | db   | 0000-00-00 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 0000-00-00 |
++----+----------+--------+--------+------+------------+
+6 rows in set (0.073 sec)
+
+MySQL [tnplab]> update emp set doj='2022-09-20' where id = '3';
+Query OK, 1 row affected (0.117 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 0000-00-00 |
+|  5 | shanu    | satna  |    800 | db   | 0000-00-00 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 0000-00-00 |
++----+----------+--------+--------+------+------------+
+6 rows in set (0.055 sec)
+
+MySQL [tnplab]> update emp set doj='2021-10-23' where id = '4';
+Query OK, 1 row affected (0.133 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 0000-00-00 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 0000-00-00 |
++----+----------+--------+--------+------+------------+
+6 rows in set (0.120 sec)
+
+MySQL [tnplab]> update emp set doj='2019-10-23' where id = '5';
+Query OK, 1 row affected (0.065 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> update emp set doj='2019-10-23' where id = '6';
+Query OK, 1 row affected (0.102 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
++----+----------+--------+--------+------+------------+
+6 rows in set (0.106 sec)
+
+MySQL [tnplab]> insert into emp values('','shubham','Rewa',1800,'bsc','2022-10-23');
+Query OK, 1 row affected, 1 warning (0.124 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
++----+----------+--------+--------+------+------------+
+7 rows in set (0.104 sec)
+
+MySQL [tnplab]> insert into emp values('','aman','indore',2500,'bca','2021-02-10');
+Query OK, 1 row affected, 1 warning (0.064 sec)
+
+MySQL [tnplab]> insert into emp values('','ayush','bhopal',1500,'db','2024-02-31');
+Query OK, 1 row affected, 2 warnings (0.108 sec)
+
+MySQL [tnplab]> insert into emp values('','ritesh','indore',800,'cs','2023-09-31');
+Query OK, 1 row affected, 2 warnings (0.122 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 0000-00-00 |
+| 10 | ritesh   | indore |    800 | cs   | 0000-00-00 |
++----+----------+--------+--------+------+------------+
+10 rows in set (0.097 sec)
+
+MySQL [tnplab]> update emp set doj='2024-02-30' where id = '9';
+Query OK, 0 rows affected, 1 warning (0.124 sec)
+Rows matched: 1  Changed: 0  Warnings: 1
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 0000-00-00 |
+| 10 | ritesh   | indore |    800 | cs   | 0000-00-00 |
++----+----------+--------+--------+------+------------+
+10 rows in set (0.104 sec)
+
+MySQL [tnplab]> update emp set doj='2024-02-26' where id = '9';
+Query OK, 1 row affected (0.119 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 0000-00-00 |
++----+----------+--------+--------+------+------------+
+10 rows in set (0.046 sec)
+
+MySQL [tnplab]> update emp set doj='2023-04-30' where id = '10';
+Query OK, 1 row affected (0.102 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
++----+----------+--------+--------+------+------------+
+10 rows in set (0.113 sec)
+
+MySQL [tnplab]> insert into emp values('','amani','rewa','450','bcom','2022-05-20');
+Query OK, 1 row affected, 1 warning (0.096 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
++----+----------+--------+--------+------+------------+
+11 rows in set (0.118 sec)
+
+MySQL [tnplab]> insert into emp values('','ayushi','bhopal','4500','cs','2022-05-20');
+Query OK, 1 row affected, 1 warning (0.051 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
++----+----------+--------+--------+------+------------+
+12 rows in set (0.051 sec)
+
+MySQL [tnplab]> insert into emp values('','shub','indore','4500','db','2020-01-26');
+Query OK, 1 row affected, 1 warning (0.070 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub     | indore |   4500 | db   | 2020-01-26 |
++----+----------+--------+--------+------+------------+
+13 rows in set (0.053 sec)
+
+MySQL [tnplab]> insert into emp values('','diggi','rewa','1300','cs','2023-07-23');
+Query OK, 1 row affected, 1 warning (0.119 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub     | indore |   4500 | db   | 2020-01-26 |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 |
++----+----------+--------+--------+------+------------+
+14 rows in set (0.053 sec)
+
+MySQL [tnplab]> desc emp;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int          | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(100) | YES  |     | NULL    |                |
+| city   | varchar(100) | YES  |     | NULL    |                |
+| salary | int          | YES  |     | NULL    |                |
+| dept   | varchar(100) | YES  |     | NULL    |                |
+| doj    | date         | YES  |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+6 rows in set (0.145 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub     | indore |   4500 | db   | 2020-01-26 |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 |
++----+----------+--------+--------+------+------------+
+14 rows in set (0.113 sec)
+
+MySQL [tnplab]> select salary from emp;
++--------+
+| salary |
++--------+
+|    500 |
+|   5500 |
+|   5000 |
+|    500 |
+|    800 |
+|   1800 |
+|   1800 |
+|   2500 |
+|   1500 |
+|    800 |
+|    450 |
+|   4500 |
+|   4500 |
+|   1300 |
++--------+
+14 rows in set (0.115 sec)
+
+MySQL [tnplab]> select * from emp where salary = bhopal;
+ERROR 1054 (42S22): Unknown column 'bhopal' in 'where clause'
+MySQL [tnplab]> select * from emp where salary = 'bhopal';
+Empty set, 1 warning (0.053 sec)
+
+MySQL [tnplab]> select * from emp where city = 'bhopal';
++----+--------+--------+--------+------+------------+
+| id | name   | city   | salary | dept | doj        |
++----+--------+--------+--------+------+------------+
+|  1 | raj    | bhopal |    500 | db   | 2010-10-22 |
+|  3 | ravi   | bhopal |   5000 | db   | 2022-09-20 |
+|  9 | ayush  | bhopal |   1500 | db   | 2024-02-26 |
+| 12 | ayushi | bhopal |   4500 | cs   | 2022-05-20 |
++----+--------+--------+--------+------+------------+
+4 rows in set (0.119 sec)
+
+MySQL [tnplab]> select * from emp where city!='indore' and dept='cs';
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 |
++----+----------+--------+--------+------+------------+
+3 rows in set (0.049 sec)
+
+MySQL [tnplab]> select * from emp order by salary desc;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub     | indore |   4500 | db   | 2020-01-26 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
++----+----------+--------+--------+------+------------+
+14 rows in set (0.117 sec)
+
+MySQL [tnplab]> select * from emp limit 4;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
++----+----------+--------+--------+------+------------+
+4 rows in set (0.057 sec)
+
+MySQL [tnplab]> select * from emp limit(1,4);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(1,4)' at line 1
+MySQL [tnplab]> select * from emp where salary>=4500;
++----+--------+--------+--------+------+------------+
+| id | name   | city   | salary | dept | doj        |
++----+--------+--------+--------+------+------------+
+|  2 | raju   | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi   | bhopal |   5000 | db   | 2022-09-20 |
+| 12 | ayushi | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub   | indore |   4500 | db   | 2020-01-26 |
++----+--------+--------+--------+------+------------+
+4 rows in set (0.057 sec)
+
+unknown [tnplab]> select max(salary) from emp;
+No connection. Trying to reconnect...
+Connection id:    15837
+Current database: tnplab
+
++-------------+
+| max(salary) |
++-------------+
+|        5500 |
++-------------+
+1 row in set (0.050 sec)
+
+MySQL [tnplab]> select max(salary) from emp where salary<5500;
++-------------+
+| max(salary) |
++-------------+
+|        5000 |
++-------------+
+1 row in set (0.065 sec)
+
+MySQL [tnplab]> select dept, count(*) from emp group by dept;
++------+----------+
+| dept | count(*) |
++------+----------+
+| db   |        5 |
+| cs   |        5 |
+| bsc  |        2 |
+| bca  |        1 |
+| bcom |        1 |
++------+----------+
+5 rows in set (0.068 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub     | indore |   4500 | db   | 2020-01-26 |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 |
++----+----------+--------+--------+------+------------+
+14 rows in set (0.063 sec)
+
+MySQL [tnplab]> select name from emp where name like 'd%b';
+Empty set (0.047 sec)
+
+MySQL [tnplab]> select name from emp where name like 'd%';
++-------+
+| name  |
++-------+
+| diggi |
++-------+
+1 row in set (0.054 sec)
+
+MySQL [tnplab]> select name from emp where name like 's%m';
++---------+
+| name    |
++---------+
+| shubham |
+| shubham |
++---------+
+2 rows in set (0.092 sec)
+
+MySQL [tnplab]> update employee set salary = salary+(salary*(14.5/100)) where dept='db';
+Query OK, 5 rows affected (0.119 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    500 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5000 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    800 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1500 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub     | indore |   4500 | db   | 2020-01-26 |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 |
++----+----------+--------+--------+------+------------+
+14 rows in set (0.109 sec)
+
+MySQL [tnplab]> update emp set salary = salary+(salary*(14.5/100)) where dept='db';
+Query OK, 5 rows affected (0.097 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+
+| id | name     | city   | salary | dept | doj        |
++----+----------+--------+--------+------+------------+
+|  1 | raj      | bhopal |    573 | db   | 2010-10-22 |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 |
+|  3 | ravi     | bhopal |   5725 | db   | 2022-09-20 |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 |
+|  5 | shanu    | satna  |    916 | db   | 2019-10-23 |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 |
+|  9 | ayush    | bhopal |   1718 | db   | 2024-02-26 |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 |
+| 13 | shub     | indore |   5153 | db   | 2020-01-26 |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 |
++----+----------+--------+--------+------+------------+
+14 rows in set (0.045 sec)
+
+MySQL [tnplab]> select count(city) from emp where city = 'bhopal' or 'indore';
++-------------+
+| count(city) |
++-------------+
+|           4 |
++-------------+
+1 row in set, 1 warning (0.048 sec)
+
+MySQL [tnplab]> select count(*) from emp where city = 'bhopal' or 'indore';
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set, 1 warning (0.065 sec)
+
+MySQL [tnplab]> select avg(salary) from emp;
++-------------+
+| avg(salary) |
++-------------+
+|   2373.9286 |
++-------------+
+1 row in set (0.106 sec)
+
+MySQL [tnplab]> select avg(salary) from emp where dept = 'db';
++-------------+
+| avg(salary) |
++-------------+
+|   2817.0000 |
++-------------+
+1 row in set (0.077 sec)
+
+MySQL [tnplab]> select avg(salary) from emp where dept = 'cs';
++-------------+
+| avg(salary) |
++-------------+
+|   2520.0000 |
++-------------+
+1 row in set (0.112 sec)
+
+MySQL [tnplab]> alter table emp add age varchar(100);
+Query OK, 0 rows affected (0.147 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MySQL [tnplab]> desc emp;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int          | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(100) | YES  |     | NULL    |                |
+| city   | varchar(100) | YES  |     | NULL    |                |
+| salary | int          | YES  |     | NULL    |                |
+| dept   | varchar(100) | YES  |     | NULL    |                |
+| doj    | date         | YES  |     | NULL    |                |
+| age    | varchar(100) | YES  |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+7 rows in set (0.101 sec)
+
+MySQL [tnplab]> insert into emp values('','rajput','bhopal','6000','math','2010-10-15','25');
+Query OK, 1 row affected, 1 warning (0.119 sec)
+
+MySQL [tnplab]> select * from emp;
++----+----------+--------+--------+------+------------+------+
+| id | name     | city   | salary | dept | doj        | age  |
++----+----------+--------+--------+------+------------+------+
+|  1 | raj      | bhopal |    573 | db   | 2010-10-22 | NULL |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 | NULL |
+|  3 | ravi     | bhopal |   5725 | db   | 2022-09-20 | NULL |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 | NULL |
+|  5 | shanu    | satna  |    916 | db   | 2019-10-23 | NULL |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 | NULL |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 | NULL |
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 | NULL |
+|  9 | ayush    | bhopal |   1718 | db   | 2024-02-26 | NULL |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 | NULL |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 | NULL |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 | NULL |
+| 13 | shub     | indore |   5153 | db   | 2020-01-26 | NULL |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 | NULL |
+| 15 | rajput   | bhopal |   6000 | math | 2010-10-15 | 25   |
++----+----------+--------+--------+------+------------+------+
+15 rows in set (0.037 sec)
+
+MySQL [tnplab]> select * from emp order by name asc;
++----+----------+--------+--------+------+------------+------+
+| id | name     | city   | salary | dept | doj        | age  |
++----+----------+--------+--------+------+------------+------+
+|  8 | aman     | indore |   2500 | bca  | 2021-02-10 | NULL |
+| 11 | amani    | rewa   |    450 | bcom | 2022-05-20 | NULL |
+|  9 | ayush    | bhopal |   1718 | db   | 2024-02-26 | NULL |
+| 12 | ayushi   | bhopal |   4500 | cs   | 2022-05-20 | NULL |
+| 14 | diggi    | rewa   |   1300 | cs   | 2023-07-23 | NULL |
+|  1 | raj      | bhopal |    573 | db   | 2010-10-22 | NULL |
+|  4 | rajkumar | bihar  |    500 | cs   | 2021-10-23 | NULL |
+| 15 | rajput   | bhopal |   6000 | math | 2010-10-15 | 25   |
+|  2 | raju     | indore |   5500 | cs   | 2015-08-10 | NULL |
+|  3 | ravi     | bhopal |   5725 | db   | 2022-09-20 | NULL |
+| 10 | ritesh   | indore |    800 | cs   | 2023-04-30 | NULL |
+|  5 | shanu    | satna  |    916 | db   | 2019-10-23 | NULL |
+| 13 | shub     | indore |   5153 | db   | 2020-01-26 | NULL |
+|  6 | shubham  | Rewa   |   1800 | bsc  | 2019-10-23 | NULL |
+|  7 | shubham  | Rewa   |   1800 | bsc  | 2022-10-23 | NULL |
++----+----------+--------+--------+------+------------+------+
+15 rows in set (0.062 sec)
+
+MySQL [tnplab]> select count(distinct city) from emp;
++----------------------+
+| count(distinct city) |
++----------------------+
+|                    5 |
++----------------------+
+1 row in set (0.073 sec)
+
+MySQL [tnplab]> select name,city,salary,dept from emp;
++----------+--------+--------+------+
+| name     | city   | salary | dept |
++----------+--------+--------+------+
+| raj      | bhopal |    573 | db   |
+| raju     | indore |   5500 | cs   |
+| ravi     | bhopal |   5725 | db   |
+| rajkumar | bihar  |    500 | cs   |
+| shanu    | satna  |    916 | db   |
+| shubham  | Rewa   |   1800 | bsc  |
+| shubham  | Rewa   |   1800 | bsc  |
+| aman     | indore |   2500 | bca  |
+| ayush    | bhopal |   1718 | db   |
+| ritesh   | indore |    800 | cs   |
+| amani    | rewa   |    450 | bcom |
+| ayushi   | bhopal |   4500 | cs   |
+| shub     | indore |   5153 | db   |
+| diggi    | rewa   |   1300 | cs   |
+| rajput   | bhopal |   6000 | math |
++----------+--------+--------+------+
+15 rows in set (0.069 sec)
+
+
+=============================================================================================================================================================
+
+                                                 {:- JOINS :-}
+
+
+Microsoft Windows [Version 10.0.19044.1889]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\sanjeev kushwaha>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.033 sec)
+
+MariaDB [(none)]> create table emp(
+    -> id int,
+    -> name varchar(20),
+    -> dept varchar(20));
+
+MariaDB [(none)]> create database tnplab;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> use tnplab;
+Database changed
+MariaDB [tnplab]> create table emp(
+    -> id int,
+    -> name varchar(20),
+    -> dept varchar(20));
+Query OK, 0 rows affected (0.042 sec)
+
+MariaDB [tnplab]> create table account(
+    -> id int,
+    -> sal int);
+Query OK, 0 rows affected (0.083 sec)
+
+MariaDB [tnplab]> insert into emp values(22,'anku','cs');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [tnplab]> insert into emp values(25,'shanu','bca');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [tnplab]> insert into emp values(26,'lucky','cs');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tnplab]> insert into account values(21,5000);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [tnplab]> insert into account values(226,6000);
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tnplab]> select * from account;
++------+------+
+| id   | sal  |
++------+------+
+|   21 | 5000 |
+|  226 | 6000 |
++------+------+
+2 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from emp;
++------+-------+------+
+| id   | name  | dept |
++------+-------+------+
+|   22 | anku  | cs   |
+|   25 | shanu | bca  |
+|   26 | lucky | cs   |
++------+-------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from emp CROSS JOIN account;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   21 | 5000 |
+|   22 | anku  | cs   |  226 | 6000 |
+|   25 | shanu | bca  |   21 | 5000 |
+|   25 | shanu | bca  |  226 | 6000 |
+|   26 | lucky | cs   |   21 | 5000 |
+|   26 | lucky | cs   |  226 | 6000 |
++------+-------+------+------+------+
+6 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from account;
++------+------+
+| id   | sal  |
++------+------+
+|   21 | 5000 |
+|  226 | 6000 |
++------+------+
+2 rows in set (0.000 sec)
+
+MariaDB [tnplab]> select * from emp;
++------+-------+------+
+| id   | name  | dept |
++------+-------+------+
+|   22 | anku  | cs   |
+|   25 | shanu | bca  |
+|   26 | lucky | cs   |
++------+-------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [tnplab]> truncate table account;
+Query OK, 0 rows affected (0.056 sec)
+
+MariaDB [tnplab]> desc account;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| id    | int(11) | YES  |     | NULL    |       |
+| sal   | int(11) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+2 rows in set (0.017 sec)
+
+MariaDB [tnplab]> select * from account;
+Empty set (0.001 sec)
+
+MariaDB [tnplab]> insert into account values(21,5000);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [tnplab]> insert into account values(26,6000);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [tnplab]> select * from account;
++------+------+
+| id   | sal  |
++------+------+
+|   21 | 5000 |
+|   26 | 6000 |
++------+------+
+2 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from emp;
++------+-------+------+
+| id   | name  | dept |
++------+-------+------+
+|   22 | anku  | cs   |
+|   25 | shanu | bca  |
+|   26 | lucky | cs   |
++------+-------+------+
+3 rows in set (0.001 sec)
+
+ * Cross Join :-
+
+MariaDB [tnplab]> select * from emp CROSS JOIN account;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   21 | 5000 |
+|   22 | anku  | cs   |   26 | 6000 |
+|   25 | shanu | bca  |   21 | 5000 |
+|   25 | shanu | bca  |   26 | 6000 |
+|   26 | lucky | cs   |   21 | 5000 |
+|   26 | lucky | cs   |   26 | 6000 |
++------+-------+------+------+------+
+6 rows in set (0.001 sec)
+
+ * Cross Join :-
+
+MariaDB [tnplab]> select * from emp,account;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   21 | 5000 |
+|   22 | anku  | cs   |   26 | 6000 |
+|   25 | shanu | bca  |   21 | 5000 |
+|   25 | shanu | bca  |   26 | 6000 |
+|   26 | lucky | cs   |   21 | 5000 |
+|   26 | lucky | cs   |   26 | 6000 |
++------+-------+------+------+------+
+6 rows in set (0.001 sec)
+
+ * Greater then join :-
+
+MariaDB [tnplab]> select * from emp,account where emp.id>account.id;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   21 | 5000 |
+|   25 | shanu | bca  |   21 | 5000 |
+|   26 | lucky | cs   |   21 | 5000 |
++------+-------+------+------+------+
+3 rows in set (0.002 sec)
+
+ * Less then join :- 
+
+MariaDB [tnplab]> select * from emp,account where emp.id<account.id;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   26 | 6000 |
+|   25 | shanu | bca  |   26 | 6000 |
++------+-------+------+------+------+
+2 rows in set (0.001 sec)
+
+ * Equi/inner join :-
+
+MariaDB [tnplab]> select * from emp,account where emp.id=account.id;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   26 | lucky | cs   |   26 | 6000 |
++------+-------+------+------+------+
+1 row in set (0.001 sec)
+
+ * Not equi join :-
+
+MariaDB [tnplab]> select * from emp,account where emp.id!=account.id;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   21 | 5000 |
+|   22 | anku  | cs   |   26 | 6000 |
+|   25 | shanu | bca  |   21 | 5000 |
+|   25 | shanu | bca  |   26 | 6000 |
+|   26 | lucky | cs   |   21 | 5000 |
++------+-------+------+------+------+
+5 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from emp,account where emp.id<>account.id;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   21 | 5000 |
+|   22 | anku  | cs   |   26 | 6000 |
+|   25 | shanu | bca  |   21 | 5000 |
+|   25 | shanu | bca  |   26 | 6000 |
+|   26 | lucky | cs   |   21 | 5000 |
++------+-------+------+------+------+
+5 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from emp CROSS JOIN account;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   22 | anku  | cs   |   21 | 5000 |
+|   22 | anku  | cs   |   26 | 6000 |
+|   25 | shanu | bca  |   21 | 5000 |
+|   25 | shanu | bca  |   26 | 6000 |
+|   26 | lucky | cs   |   21 | 5000 |
+|   26 | lucky | cs   |   26 | 6000 |
++------+-------+------+------+------+
+6 rows in set (0.001 sec)
+
+ * Inner Join :-
+
+MariaDB [tnplab]> select * from emp,account where emp.id=account.id;
++------+-------+------+------+------+
+| id   | name  | dept | id   | sal  |
++------+-------+------+------+------+
+|   26 | lucky | cs   |   26 | 6000 |
++------+-------+------+------+------+
+1 row in set (0.001 sec)
+
+ * Natural Join :-
+
+MariaDB [tnplab]> select * from emp natural join account;
++------+-------+------+------+
+| id   | name  | dept | sal  |
++------+-------+------+------+
+|   26 | lucky | cs   | 6000 |
++------+-------+------+------+
+1 row in set (0.001 sec)
+
+ * Left outer Join :- ( use using clause)
+
+MariaDB [tnplab]> select * from emp left join account using(id);
++------+-------+------+------+
+| id   | name  | dept | sal  |
++------+-------+------+------+
+|   26 | lucky | cs   | 6000 |
+|   22 | anku  | cs   | NULL |
+|   25 | shanu | bca  | NULL |
++------+-------+------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from emp left outer join account using(id);
++------+-------+------+------+
+| id   | name  | dept | sal  |
++------+-------+------+------+
+|   26 | lucky | cs   | 6000 |
+|   22 | anku  | cs   | NULL |
+|   25 | shanu | bca  | NULL |
++------+-------+------+------+
+3 rows in set (0.001 sec)
+
+ * Right Outer Join :- 
+
+MariaDB [tnplab]> select * from emp right join account using(id);
++------+------+-------+------+
+| id   | sal  | name  | dept |
++------+------+-------+------+
+|   26 | 6000 | lucky | cs   |
+|   21 | 5000 | NULL  | NULL |
++------+------+-------+------+
+2 rows in set (0.001 sec)
+
+MariaDB [tnplab]> select * from emp right outer join account using(id);
++------+------+-------+------+
+| id   | sal  | name  | dept |
++------+------+-------+------+
+|   26 | 6000 | lucky | cs   |
+|   21 | 5000 | NULL  | NULL |
++------+------+-------+------+
+2 rows in set (0.001 sec)
+
+ * Left Outer Join :- ( use on clause )
+
+MariaDB [tnplab]> select emp.*,sal from emp left join account on emp.id=account.id;
++------+-------+------+------+
+| id   | name  | dept | sal  |
++------+-------+------+------+
+|   26 | lucky | cs   | 6000 |
+|   22 | anku  | cs   | NULL |
+|   25 | shanu | bca  | NULL |
++------+-------+------+------+
+3 rows in set (0.001 sec)
+
+  * Right Outer Join :- ( use on clause )
+
+MariaDB [tnplab]> select emp.*,sal from emp right join account on emp.id=account.id;
++------+-------+------+------+
+| id   | name  | dept | sal  |
++------+-------+------+------+
+|   26 | lucky | cs   | 6000 |
+| NULL | NULL  | NULL | 5000 |
++------+-------+------+------+
+2 rows in set (0.001 sec)
+
+ { * :- on clause = where the two tables join attribute different then we use on clause :- }
+
+ { * :- using clause = where the two tables join attribute same then we use using clause :- }
+
+
+      =================================================== on delete cascade Query ======================================================================
+
+    *.  Microsoft Windows [Version 10.0.19044.1889]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\sanjeev kushwaha>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| tnplab             |
++--------------------+
+6 rows in set (0.043 sec)
+
+MariaDB [(none)]> use tnplab;
+Database changed
+MariaDB [tnplab]> create database project1
+    -> ;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [tnplab]> use project1;
+Database changed
+MariaDB [project1]> create table student(
+    -> s_no int primary key auto_increment,
+    -> s_name varchar(50) not null,
+    -> age int);
+Query OK, 0 rows affected (0.047 sec)
+
+MariaDB [project1]> insert into student values('','ankit',17);
+Query OK, 1 row affected, 1 warning (0.085 sec)
+
+MariaDB [project1]> select * from student;
++------+--------+------+
+| s_no | s_name | age  |
++------+--------+------+
+|    1 | ankit  |   17 |
++------+--------+------+
+1 row in set (0.001 sec)
+
+MariaDB [project1]> insert into student values('','ramya',18);
+Query OK, 1 row affected, 1 warning (0.004 sec)
+
+MariaDB [project1]> insert into student values('','ram',6);
+Query OK, 1 row affected, 1 warning (0.003 sec)
+
+MariaDB [project1]> select * from student;
++------+--------+------+
+| s_no | s_name | age  |
++------+--------+------+
+|    1 | ankit  |   17 |
+|    2 | ramya  |   18 |
+|    3 | ram    |    6 |
++------+--------+------+
+3 rows in set (0.000 sec)
+
+MariaDB [project1]> create table course(
+    -> course_id int primary key auto_increment,
+    -> course_name varchar(50) not null
+    -> );
+Query OK, 0 rows affected (0.044 sec)
+
+MariaDB [project1]> insert into course values('','dbms');
+Query OK, 1 row affected, 1 warning (0.006 sec)
+
+MariaDB [project1]> insert into course values('','c++');
+Query OK, 1 row affected, 1 warning (0.004 sec)
+
+MariaDB [project1]> select * from course;
++-----------+-------------+
+| course_id | course_name |
++-----------+-------------+
+|         1 | dbms        |
+|         2 | c++         |
++-----------+-------------+
+2 rows in set (0.000 sec)
+
+MariaDB [project1]> desc student;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| s_no   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| s_name | varchar(50) | NO   |     | NULL    |                |
+| age    | int(11)     | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+3 rows in set (0.105 sec)
+
+MariaDB [project1]> desc course;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| course_id   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| course_name | varchar(50) | NO   |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+2 rows in set (0.030 sec)
+
+MariaDB [project1]> create table enroll(
+    -> s_no int,
+    -> course_id int,
+    -> jdate date,
+    -> primary key(s_no,course_id),
+    -> foreign key(s_no) references student(s_no) on delete cascade,
+    -> foreign key(course_id) references course(course_id) on delete cascade);
+Query OK, 0 rows affected (0.153 sec)
+
+MariaDB [project1]> desc enroll;
++-----------+---------+------+-----+---------+-------+
+| Field     | Type    | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| s_no      | int(11) | NO   | PRI | NULL    |       |
+| course_id | int(11) | NO   | PRI | NULL    |       |
+| jdate     | date    | YES  |     | NULL    |       |
++-----------+---------+------+-----+---------+-------+
+3 rows in set (0.029 sec)
+
+MariaDB [project1]> insert into enroll values(1,1,curdate());
+Query OK, 1 row affected (0.019 sec)
+
+MariaDB [project1]> select * from enroll;
++------+-----------+------------+
+| s_no | course_id | jdate      |
++------+-----------+------------+
+|    1 |         1 | 2022-09-02 |
++------+-----------+------------+
+1 row in set (0.022 sec)
+
+MariaDB [project1]> alter table enroll modify jdate varchar(20);
+Query OK, 1 row affected (0.127 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+MariaDB [project1]> select * from enroll;
++------+-----------+------------+
+| s_no | course_id | jdate      |
++------+-----------+------------+
+|    1 |         1 | 2022-09-02 |
++------+-----------+------------+
+1 row in set (0.004 sec)
+
+MariaDB [project1]> desc enroll
+    -> ;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| s_no      | int(11)     | NO   | PRI | NULL    |       |
+| course_id | int(11)     | NO   | PRI | NULL    |       |
+| jdate     | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.022 sec)
+
+MariaDB [project1]> insert into enroll values(2,2,'5-jan-2021');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [project1]> select * from enroll;
++------+-----------+------------+
+| s_no | course_id | jdate      |
++------+-----------+------------+
+|    1 |         1 | 2022-09-02 |
+|    2 |         2 | 5-jan-2021 |
++------+-----------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [project1]> insert into enroll values(1,2,'5-jan-2021');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [project1]> select * from enroll;
++------+-----------+------------+
+| s_no | course_id | jdate      |
++------+-----------+------------+
+|    1 |         1 | 2022-09-02 |
+|    1 |         2 | 5-jan-2021 |
+|    2 |         2 | 5-jan-2021 |
++------+-----------+------------+
+3 rows in set (0.039 sec)
+
+MariaDB [project1]> delete from student where s_name = "ram";
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [project1]> select * from student;
++------+--------+------+
+| s_no | s_name | age  |
++------+--------+------+
+|    1 | ankit  |   17 |
+|    2 | ramya  |   18 |
++------+--------+------+
+2 rows in set (0.001 sec)
+
+MariaDB [project1]> delete from student where s_no = 1;
+Query OK, 1 row affected (0.020 sec)
+
+MariaDB [project1]> select * from student;
++------+--------+------+
+| s_no | s_name | age  |
++------+--------+------+
+|    2 | ramya  |   18 |
++------+--------+------+
+1 row in set (0.004 sec)
+
+MariaDB [project1]> delete from course where course_id =1;
+Query OK, 1 row affected (1.970 sec)
+
+MariaDB [project1]> select * from course;
++-----------+-------------+
+| course_id | course_name |
++-----------+-------------+
+|         2 | c++         |
++-----------+-------------+
+1 row in set (0.005 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
